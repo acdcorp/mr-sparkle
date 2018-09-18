@@ -12,6 +12,15 @@ The main purpose of this gem is to take Jonathan's idea and package it into some
 
 The script comes with a default set of file extensions it will watch for changes.  I've tried to be liberal about it--no harm reloading a few extra times when developing.  You can run `mr-sparkle --help` to see the default set as a regexp, and you can change that regexp with the `--pattern` option.
 
+## ACDCORP versions
+We are hosting several gems that our projects are using because bundle requires
+them from the custom fork or original repo where they can get updates and crash our
+projects, therefore, every gem fork contains the following branch(es):
+
+  * fork-stable => Stable or initial branch from the fork
+  * x.x-acdcorp-stable => custom stable version
+  * master => continues development and tracking original repos
+
 ## Installation
 
     $ gem install mr-sparkle
@@ -21,7 +30,7 @@ The script comes with a default set of file extensions it will watch for changes
 If you've got a Rack app that uses Bundler for its dependencies, then ordinarily all you have to do is execute
 
     $ mr-sparkle
-    
+
 in your project's root directory.  You'll get a server listening on port 8080 (bound to all addresses, so external machines WILL be able to connect to it by default) and your code will be reloaded if any relevant files change.
 
 You can use command-line options to change the behavior a bit as follows:
